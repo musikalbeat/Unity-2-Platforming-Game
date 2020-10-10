@@ -1,0 +1,30 @@
+What is a Coroutine?
+- Special type of function/method
+
+- *Recall that normal functions execute everything from beginning to end during a single   	Update
+
+- Allows you to wait for some amount of time before doing another update
+
+---
+Keywords Used for Coroutines
+- IEnumerator
+- yield return / yield return WaitForSeconds([TIME_TO_WAIT])
+- StartCoroutine("COROUTINE_NAME")
+
+---
+Where is it Used?
+- These are often used when you want to countdown before something happens
+	- Ex: A countdown timer shown before the game is to start
+- When you want multiframe updates
+	- Ex: You have an object that fades when you press a button. A regular function 		would execute everything, which will have the object immediately disappear (ie. 		there will be no intermediate states). A coroutine allows you to get those 		intermediate states and display them within different updates.
+---
+DontDestroyOnLoad Function
+- What is it?
+	- Used in Unity to specify what objects are not destroyed when a new scene is 	loaded.
+	- In the hierarchy, you will see a DontDestroyOnLoad parent class, which shows 	which objects will not be deleted on scene updates.
+	- **Note: These objects are not destroyed automatically (except when the game 	stops), so they will have to deleted manually. When you have something created on 	a new load and it has the function, make sure there is a check to see if the 	object already exists. This will prevent duplication of objects.
+
+- Where is it used?
+	- This is used often when you have data that carries across levels.
+		- Ex: Scores, Health, Inventory, etc.
+	- This can also be used to manage music, so that it seamlessly transition between 	levels.
