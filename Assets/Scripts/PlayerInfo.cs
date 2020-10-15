@@ -6,7 +6,7 @@ public class PlayerInfo : MonoBehaviour
 {
     public int score = 0;
     public int health = 100;
-    public List<Collectable> inventory;
+    public List<Collectable> inventory = new List<Collectable>();
 
     // Start is called before the first frame update
     void Start()

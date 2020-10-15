@@ -6,10 +6,6 @@ using TMPro;
 
 public class playerManager : MonoBehaviour
 {
-    // Player specific variables
-    //private int health;
-    //private int score;
-
     // Boolean values
     private bool isGamePaused = false;
 
@@ -80,7 +76,16 @@ public class playerManager : MonoBehaviour
             {
                 info.inventory[currentIndex].Use();
                 info.inventory.RemoveAt(currentIndex);
-                currentIndex = (currentIndex - 1) % info.inventory.Count;
+
+                if (info.inventory.Count == 0)
+                {
+                    currentIndex = -1;
+                }
+                else
+                {
+                    Debug.Log("New CurrentIndex: " + (currentIndex - 1) % info.inventory.Count);
+                    currentIndex = currentIndex % info.inventory.Count;
+                }
             }
         }
         if (Input.GetKeyDown(KeyCode.I))
